@@ -7,12 +7,8 @@ public class Warrior extends Hero {
         super(150, 10, 3, 1);
     }
 
-    @Override
     public void addExperience(int xp) {
-        experience += xp;
-        while (experience >= experienceToNextLevel) {
-            levelUp(30, 5, 2, 1);
-        }
+        addExperienceToHero(xp, 30, 5, 2, 1);
     }
 
     @Override

@@ -21,6 +21,13 @@ public abstract class Hero {
 
     public abstract void addExperience(int xp);
 
+    protected void addExperienceToHero(int xp, int health, int strength, int dexterity, int intelligence) {
+        experience += xp;
+        while (experience >= experienceToNextLevel) {
+            levelUp(health, strength, dexterity, intelligence);
+        }
+    }
+
     protected void levelUp(int health, int strength, int dexterity, int intelligence) {
         experience -= experienceToNextLevel;
         experienceToNextLevel = (int) Math.floor(experienceToNextLevel * 1.1);
@@ -69,4 +76,6 @@ public abstract class Hero {
     public int getExperienceToNextLevel() {
         return experienceToNextLevel;
     }
+
+
 }
