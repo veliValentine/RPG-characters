@@ -1,6 +1,6 @@
 package Hero;
 
-public class Hero {
+public abstract class Hero {
     protected int level;
     protected int health;
     protected int strength;
@@ -19,12 +19,7 @@ public class Hero {
         experienceToNextLevel = 100;
     }
 
-    public void addExperience(int xp){
-        experience += xp;
-        while(experience >= experienceToNextLevel){
-            levelUp(10, 1, 1, 1);
-        }
-    }
+    public abstract void addExperience(int xp);
 
     protected void levelUp(int health, int strength, int dexterity, int intelligence) {
         experience -= experienceToNextLevel;
@@ -34,6 +29,17 @@ public class Hero {
         this.strength += strength;
         this.dexterity += dexterity;
         this.intelligence += intelligence;
+    }
+
+    public abstract void printDetails();
+
+    protected void printStats(){
+        System.out.println("HP: " + getHealth());
+        System.out.println("Str: " + getStrength());
+        System.out.println("Dex: " + getDexterity());
+        System.out.println("Int: " + getIntelligence());
+        System.out.println("Lvl: " + level);
+        System.out.println("XP to next: " + (experienceToNextLevel - experience));
     }
 
     public int getLevel() {
