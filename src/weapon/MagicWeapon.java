@@ -11,10 +11,11 @@ public class MagicWeapon implements Weapon {
         this.level = level;
     }
 
-
     @Override
     public void print() {
-
+        System.out.println("Weapon type: Magic");
+        System.out.println("Weapon level: " + level);
+        System.out.println("Damage: " + damage());
     }
 
     @Override

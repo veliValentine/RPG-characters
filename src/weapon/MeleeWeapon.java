@@ -15,6 +15,7 @@ public class MeleeWeapon implements Weapon {
         return BASE_DAMAGE + level * 2;
     }
 
+    @Override
     public void print() {
         System.out.println("Weapon type: Melee");
         System.out.println("Weapon level: " + level);
