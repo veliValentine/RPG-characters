@@ -1,0 +1,24 @@
+package weapon;
+
+public class MagicWeapon implements Weapon {
+    private final int BASE_DAMAGE = 25;
+    private String name;
+    private int level;
+
+
+    public MagicWeapon(String name, int level) {
+        this.name = name;
+        this.level = level;
+    }
+
+
+    @Override
+    public void print() {
+
+    }
+
+    @Override
+    public int damage() {
+        return BASE_DAMAGE + 2 * level;
+    }
+}
