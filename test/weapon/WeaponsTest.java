@@ -14,4 +14,12 @@ class WeaponsTest {
         assertEquals(25, weapon.damage());
     }
 
+    @Test
+    void rangeWeaponDealsRightAmountOfBaseDamage() {
+        RangeWeapon weapon = new RangeWeapon("test weapon", 0);
+        assertEquals(5, weapon.damage());
+
+        weapon = new RangeWeapon("Long bow of the lonely wolf", 10);
+        assertEquals(35, weapon.damage());
+    }
 }
