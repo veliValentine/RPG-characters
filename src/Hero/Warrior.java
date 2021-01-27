@@ -1,8 +1,7 @@
 package Hero;
 
-import Hero.Hero;
-
 public class Warrior extends Hero {
+
     public Warrior() {
         super(150, 10, 3, 1);
     }

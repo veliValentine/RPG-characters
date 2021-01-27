@@ -22,6 +22,9 @@ public abstract class Hero {
     public abstract void addExperience(int xp);
 
     protected void addExperienceToHero(int xp, int health, int strength, int dexterity, int intelligence) {
+        if (xp < 0) {
+            return;
+        }
         experience += xp;
         while (experience >= experienceToNextLevel) {
             levelUp(health, strength, dexterity, intelligence);
@@ -40,7 +43,7 @@ public abstract class Hero {
 
     public abstract void printDetails();
 
-    protected void printStats(){
+    protected void printStats() {
         System.out.println("HP: " + getHealth());
         System.out.println("Str: " + getStrength());
         System.out.println("Dex: " + getDexterity());
