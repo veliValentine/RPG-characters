@@ -24,4 +24,14 @@ public class LeatherArmor extends Armor {
     public int getIntelligence() {
         return 0;
     }
+
+    @Override
+    public void print() {
+        System.out.println("Armor type: Leather");
+        System.out.println("Slot: " + slot);
+        System.out.println("Armor level: " + level);
+        System.out.println("Bonus HP: " + getHealth());
+        System.out.println("Bonus Str: " + getStrength());
+        System.out.println("Bonus Dex: " + getDexterity());
+    }
 }

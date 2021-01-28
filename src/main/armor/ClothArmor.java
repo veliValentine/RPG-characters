@@ -21,4 +21,14 @@ public class ClothArmor extends Armor {
     public int getIntelligence() {
         return scale(2 * level + intelligence);
     }
+
+    @Override
+    public void print() {
+        System.out.println("Armor type: Cloth");
+        System.out.println("Slot: " + slot);
+        System.out.println("Armor level: " + level);
+        System.out.println("Bonus HP: " + getHealth());
+        System.out.println("Bonus Dex: " + getDexterity());
+        System.out.println("Bonus Int: " + getIntelligence());
+    }
 }

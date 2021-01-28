@@ -1,20 +1,13 @@
 package main;
 
-import main.hero.Mage;
-import main.hero.Warrior;
+import main.hero.*;
+import main.weapon.*;
+import main.armor.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        Warrior hero = new Warrior();
-        hero.printDetails();
-        hero.addExperience(209);
-        hero.printDetails();
-
-        Mage mage = new Mage();
-        while (mage.getLevel() < 10){
-            mage.addExperience(100);
-        }
-        mage.printDetails();
+        Armor plate = new ClothArmor("testName", 10, SlotType.Legs);
+        plate.print();
     }
 }

@@ -28,10 +28,10 @@ public abstract class Armor {
     }
 
     protected int scale(int value) {
-        if (slot == SlotType.HEAD) {
+        if (slot == SlotType.Head) {
             return Utils.roundDown(value * HEAD);
         }
-        if (slot == SlotType.BODY) {
+        if (slot == SlotType.Body) {
             return Utils.roundDown(value * BODY);
         }
         return Utils.roundDown(value * LEGS);
@@ -44,4 +44,6 @@ public abstract class Armor {
     public abstract int getDexterity();
 
     public abstract int getIntelligence();
+
+    public abstract void print();
 }
