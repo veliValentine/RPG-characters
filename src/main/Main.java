@@ -21,7 +21,7 @@ public class Main {
         armor.print();
         System.out.println();
 
-        hero.setBodyArmor(armor);
+        hero.setArmor(armor);
         hero.setWeapon(weapon);
         hero.printDetails();
 

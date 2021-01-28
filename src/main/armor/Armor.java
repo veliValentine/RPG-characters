@@ -11,7 +11,6 @@ public abstract class Armor {
     protected int level;
     protected SlotType slot;
 
-
     protected int health;
     protected int strength;
     protected int dexterity;
@@ -49,4 +48,8 @@ public abstract class Armor {
     public abstract int getIntelligence();
 
     public abstract void print();
+
+    public SlotType getSlot(){
+        return slot;
+    }
 }

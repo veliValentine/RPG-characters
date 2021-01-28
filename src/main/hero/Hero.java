@@ -2,6 +2,7 @@ package main.hero;
 
 import main.Utils;
 import main.armor.Armor;
+import main.armor.SlotType;
 import main.weapon.Weapon;
 import main.weapon.WeaponType;
 
@@ -18,6 +19,8 @@ public abstract class Hero {
 
     protected Weapon weapon;
     protected Armor bodyArmor;
+    protected Armor helmet;
+    protected Armor leggings;
 
     public Hero(int health, int strength, int dexterity, int intelligence) {
         level = 1;
@@ -55,8 +58,29 @@ public abstract class Hero {
         this.weapon = weapon;
     }
 
-    public void setBodyArmor(Armor bodyArmor) {
-        this.bodyArmor = bodyArmor;
+    public void setArmor(Armor armor){
+        SlotType armorSlotType = armor.getSlot();
+        if(armorSlotType == SlotType.Head){
+            helmet = armor;
+        }
+        if(armorSlotType == SlotType.Body){
+            bodyArmor = armor;
+        }
+        if(armorSlotType == SlotType.Legs){
+            leggings = armor;
+        }
+    }
+
+    public void clearArmor(SlotType slot){
+        if(slot == SlotType.Head){
+            helmet = null;
+        }
+        if(slot == SlotType.Body){
+            bodyArmor = null;
+        }
+        if(slot == SlotType.Legs){
+            leggings = null;
+        }
     }
 
     public abstract void printDetails();
@@ -75,14 +99,14 @@ public abstract class Hero {
             //If weapon type melee
             int totalDamage = weapon.damage();
 
-            if(weapon.getWeaponType() == WeaponType.Melee){
-                totalDamage +=  + Utils.roundDown(1.5 * getStrength());
+            if (weapon.getWeaponType() == WeaponType.Melee) {
+                totalDamage += +Utils.roundDown(1.5 * getStrength());
             }
-            if(weapon.getWeaponType() == WeaponType.Ranged){
-                totalDamage +=  + Utils.roundDown(1.5 * getDexterity());
+            if (weapon.getWeaponType() == WeaponType.Ranged) {
+                totalDamage += +Utils.roundDown(1.5 * getDexterity());
             }
-            if(weapon.getWeaponType() == WeaponType.Magic){
-                totalDamage +=  + Utils.roundDown(1.5 * getIntelligence());
+            if (weapon.getWeaponType() == WeaponType.Magic) {
+                totalDamage += +Utils.roundDown(1.5 * getIntelligence());
             }
             System.out.println("Attacking for " + totalDamage);
             return totalDamage;
