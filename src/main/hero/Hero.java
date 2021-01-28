@@ -7,20 +7,17 @@ import main.weapon.Weapon;
 import main.weapon.WeaponType;
 
 public abstract class Hero {
-    protected int level;
+    private int level;
 
-    protected int health;
-    protected int strength;
-    protected int dexterity;
-    protected int intelligence;
+    private int health;
+    private int strength;
+    private int dexterity;
+    private int intelligence;
 
-    protected int experience;
-    protected int experienceToNextLevel;
+    private int experience;
+    private int experienceToNextLevel;
 
-    protected Weapon weapon;
-    protected Armor bodyArmor;
-    protected Armor helmet;
-    protected Armor leggings;
+    private Items items;
 
     public Hero(int health, int strength, int dexterity, int intelligence) {
         level = 1;
@@ -30,10 +27,12 @@ public abstract class Hero {
         this.intelligence = intelligence;
         experience = 0;
         experienceToNextLevel = 100;
+        items = new Items();
     }
 
     public abstract void addExperience(int xp);
 
+    //Takes care of addedExperience and calls levelUp() when needed
     protected void addExperienceToHero(int xp, int health, int strength, int dexterity, int intelligence) {
         if (xp < 0) {
             return;
@@ -44,9 +43,9 @@ public abstract class Hero {
         }
     }
 
-    protected void levelUp(int health, int strength, int dexterity, int intelligence) {
+    private void levelUp(int health, int strength, int dexterity, int intelligence) {
         experience -= experienceToNextLevel;
-        experienceToNextLevel = (int) Math.floor(experienceToNextLevel * 1.1);
+        experienceToNextLevel = Utils.roundDown(experienceToNextLevel * 1.1);
         level++;
         this.health += health;
         this.strength += strength;
@@ -54,38 +53,10 @@ public abstract class Hero {
         this.intelligence += intelligence;
     }
 
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
-    public void setArmor(Armor armor){
-        SlotType armorSlotType = armor.getSlot();
-        if(armorSlotType == SlotType.Head){
-            helmet = armor;
-        }
-        if(armorSlotType == SlotType.Body){
-            bodyArmor = armor;
-        }
-        if(armorSlotType == SlotType.Legs){
-            leggings = armor;
-        }
-    }
-
-    public void clearArmor(SlotType slot){
-        if(slot == SlotType.Head){
-            helmet = null;
-        }
-        if(slot == SlotType.Body){
-            bodyArmor = null;
-        }
-        if(slot == SlotType.Legs){
-            leggings = null;
-        }
-    }
-
     public abstract void printDetails();
 
     protected void printStats() {
+        //These are common part of printout to all heroes;
         System.out.println("HP: " + getHealth());
         System.out.println("Str: " + getStrength());
         System.out.println("Dex: " + getDexterity());
@@ -94,24 +65,30 @@ public abstract class Hero {
         System.out.println("XP to next: " + (experienceToNextLevel - experience));
     }
 
-    public int attack() {
-        if (weapon != null) {
-            //If weapon type melee
-            int totalDamage = weapon.damage();
+    public void addArmor(Armor armor) {
+        items.addArmor(armor);
+    }
 
-            if (weapon.getWeaponType() == WeaponType.Melee) {
-                totalDamage += +Utils.roundDown(1.5 * getStrength());
-            }
-            if (weapon.getWeaponType() == WeaponType.Ranged) {
-                totalDamage += +Utils.roundDown(1.5 * getDexterity());
-            }
-            if (weapon.getWeaponType() == WeaponType.Magic) {
-                totalDamage += +Utils.roundDown(1.5 * getIntelligence());
-            }
-            System.out.println("Attacking for " + totalDamage);
-            return totalDamage;
-        }
-        return 0;
+    public void addWeapon(Weapon weapon) {
+        items.addWeapon(weapon);
+    }
+
+    public void clearWeapon() {
+        items.clearWeapon();
+    }
+
+    public void clearArmor(SlotType slot) {
+        items.clearArmor(slot);
+    }
+
+    public void clearArmor() {
+        items.clearArmor(SlotType.Head);
+        items.clearArmor(SlotType.Body);
+        items.clearArmor(SlotType.Legs);
+    }
+
+    public int attack() {
+        return items.attack(getStrength(), getDexterity(), getIntelligence());
     }
 
     public int getLevel() {
@@ -119,35 +96,19 @@ public abstract class Hero {
     }
 
     public int getHealth() {
-        int gearHP = 0;
-        if (bodyArmor != null) {
-            gearHP += bodyArmor.getHealth();
-        }
-        return health + gearHP;
+        return health + items.itemsHP();
     }
 
     public int getStrength() {
-        int gear = 0;
-        if (bodyArmor != null) {
-            gear += bodyArmor.getStrength();
-        }
-        return strength + gear;
+        return strength + items.itemsStrength();
     }
 
     public int getDexterity() {
-        int gear = 0;
-        if (bodyArmor != null) {
-            gear += bodyArmor.getDexterity();
-        }
-        return dexterity + gear;
+        return dexterity + items.itemsDexterity();
     }
 
     public int getIntelligence() {
-        int gear = 0;
-        if (bodyArmor != null) {
-            gear += bodyArmor.getIntelligence();
-        }
-        return intelligence + gear;
+        return intelligence + items.itemsIntelligence();
     }
 
     public int getExperience() {
