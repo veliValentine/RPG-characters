@@ -4,4 +4,8 @@ public interface Weapon{
     public void print();
 
     public int damage();
+
+    public WeaponType getWeaponType();
+
+    public String getName();
 }
