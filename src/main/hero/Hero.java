@@ -3,6 +3,7 @@ package main.hero;
 import main.Utils;
 import main.armor.Armor;
 import main.weapon.Weapon;
+import main.weapon.WeaponType;
 
 public abstract class Hero {
     protected int level;
@@ -72,9 +73,19 @@ public abstract class Hero {
     public int attack() {
         if (weapon != null) {
             //If weapon type melee
-            int damage = weapon.damage() + Utils.roundDown(1.5 * getStrength());
-            System.out.println();
-            return damage;
+            int totalDamage = weapon.damage();
+
+            if(weapon.getWeaponType() == WeaponType.Melee){
+                totalDamage +=  + Utils.roundDown(1.5 * getStrength());
+            }
+            if(weapon.getWeaponType() == WeaponType.Ranged){
+                totalDamage +=  + Utils.roundDown(1.5 * getDexterity());
+            }
+            if(weapon.getWeaponType() == WeaponType.Magic){
+                totalDamage +=  + Utils.roundDown(1.5 * getIntelligence());
+            }
+            System.out.println("Attacking for " + totalDamage);
+            return totalDamage;
         }
         return 0;
     }
