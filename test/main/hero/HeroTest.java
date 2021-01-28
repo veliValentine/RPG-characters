@@ -28,14 +28,14 @@ class HeroTest {
         Armor armor = new PlateArmor("Armor with holes", 5, SlotType.Body);
 
         warrior.setWeapon(weapon);
-        warrior.setBodyArmor(armor);
+        warrior.setArmor(armor);
 
         checkStats(warrior, 9, 480, 63, 25,9, 61, 212);
 
         assertEquals(119, warrior.attack());
 
         warrior.setWeapon(null);
-        warrior.setBodyArmor(null);
+        warrior.clearArmor(SlotType.Body);
 
         checkStats(warrior, 9, 390, 50, 19, 9, 61, 212);
         assertEquals(0, warrior.attack());
