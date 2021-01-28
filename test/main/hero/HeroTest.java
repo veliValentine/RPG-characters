@@ -18,8 +18,8 @@ class HeroTest {
     }
 
     @Test
-    void equippingItemsChangesWarriorsStats() {
-        Warrior warrior = new Warrior();
+    void equippingItemsChangesHeroStats() {
+        Hero warrior = new Warrior();
         warrior.addExperience(xpToReachLevel(9));
         checkStats(warrior, 9, 390, 50, 19, 9, 0, 212);
         assertEquals(0, warrior.attack());
