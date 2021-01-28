@@ -1,5 +1,10 @@
 package main.hero;
 
+import main.armor.Armor;
+import main.armor.PlateArmor;
+import main.armor.SlotType;
+import main.weapon.MeleeWeapon;
+import main.weapon.Weapon;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,6 +13,26 @@ class HeroTest {
     @Test
     void createdWarriorsInitialValuesAreCorrect() {
         checkStats(new Warrior(), 1, 150, 10, 3, 1, 0, 100);
+    }
+
+    @Test
+    void equippingItemsChangesWarriorsStats(){
+        Warrior warrior = new Warrior();
+        while (warrior.getLevel() < 9){
+            warrior.addExperience(100);
+        }
+        checkStats(warrior, 9, 390, 50, 19, 9, 61, 212);
+        assertEquals(0, warrior.attack());
+        Weapon weapon = new MeleeWeapon("Great axe of the ", 5);
+        Armor armor = new PlateArmor("Armor with holes", 5, SlotType.Body);
+
+        warrior.setWeapon(weapon);
+        warrior.setBodyArmor(armor);
+
+        checkStats(warrior, 9, 480, 63, 25,9, 61, 212);
+
+        assertEquals(119, warrior.attack());
+
     }
 
     @Test

@@ -1,13 +1,22 @@
 package main.hero;
 
+import main.Utils;
+import main.armor.Armor;
+import main.weapon.Weapon;
+
 public abstract class Hero {
     protected int level;
+
     protected int health;
     protected int strength;
     protected int dexterity;
     protected int intelligence;
+
     protected int experience;
     protected int experienceToNextLevel;
+
+    protected Weapon weapon;
+    protected Armor bodyArmor;
 
     public Hero(int health, int strength, int dexterity, int intelligence) {
         level = 1;
@@ -41,6 +50,14 @@ public abstract class Hero {
         this.intelligence += intelligence;
     }
 
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public void setBodyArmor(Armor bodyArmor) {
+        this.bodyArmor = bodyArmor;
+    }
+
     public abstract void printDetails();
 
     protected void printStats() {
@@ -52,24 +69,50 @@ public abstract class Hero {
         System.out.println("XP to next: " + (experienceToNextLevel - experience));
     }
 
+    public int attack() {
+        if (weapon != null) {
+            //If weapon type melee
+            int damage = weapon.damage() + Utils.roundDown(1.5 * getStrength());
+            System.out.println();
+            return damage;
+        }
+        return 0;
+    }
+
     public int getLevel() {
         return level;
     }
 
     public int getHealth() {
-        return health;
+        int gearHP = 0;
+        if (bodyArmor != null) {
+            gearHP += bodyArmor.getHealth();
+        }
+        return health + gearHP;
     }
 
     public int getStrength() {
-        return strength;
+        int gear = 0;
+        if (bodyArmor != null) {
+            gear += bodyArmor.getStrength();
+        }
+        return strength + gear;
     }
 
     public int getDexterity() {
-        return dexterity;
+        int gear = 0;
+        if (bodyArmor != null) {
+            gear += bodyArmor.getDexterity();
+        }
+        return dexterity + gear;
     }
 
     public int getIntelligence() {
-        return intelligence;
+        int gear = 0;
+        if (bodyArmor != null) {
+            gear += bodyArmor.getIntelligence();
+        }
+        return intelligence + gear;
     }
 
     public int getExperience() {
@@ -79,6 +122,4 @@ public abstract class Hero {
     public int getExperienceToNextLevel() {
         return experienceToNextLevel;
     }
-
-
 }
