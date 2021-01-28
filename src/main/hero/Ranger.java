@@ -1,4 +1,4 @@
-package Hero;
+package main.hero;
 
 public class Ranger extends Hero {
 

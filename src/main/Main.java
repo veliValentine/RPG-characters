@@ -1,4 +1,7 @@
-import Hero.*;
+package main;
+
+import main.hero.Mage;
+import main.hero.Warrior;
 
 public class Main {
 
