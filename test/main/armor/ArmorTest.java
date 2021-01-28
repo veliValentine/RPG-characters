@@ -27,7 +27,7 @@ class ArmorTest {
         checkValues(armor, 20,1,3,0);
 
         armor = new LeatherArmor("test", 10, SlotType.Legs);
-        checkValues(armor, 36,0,6,13);
+        checkValues(armor, 60,6,13,0);
     }
 
     @Test
@@ -37,6 +37,9 @@ class ArmorTest {
 
         armor = new PlateArmor("test", 15, SlotType.Body);
         checkValues(armor, 210, 33, 16, 0);
+
+        armor = new PlateArmor("test", 15, SlotType.Legs);
+        checkValues(armor, 126, 19, 9, 0);
     }
 
     void checkValues(Armor armor, int health, int strength, int dexterity, int intelligence) {
