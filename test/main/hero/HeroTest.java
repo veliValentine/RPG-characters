@@ -27,15 +27,15 @@ class HeroTest {
         Weapon weapon = new MeleeWeapon("Great axe of the ", 5);
         Armor armor = new PlateArmor("Armor with holes", 5, SlotType.Body);
 
-        warrior.setWeapon(weapon);
-        warrior.setArmor(armor);
+        warrior.addWeapon(weapon);
+        warrior.addArmor(armor);
 
         checkStats(warrior, 9, 480, 63, 25,9, 61, 212);
 
         assertEquals(119, warrior.attack());
 
-        warrior.setWeapon(null);
-        warrior.clearArmor(SlotType.Body);
+        warrior.clearWeapon();
+        warrior.clearArmor();
 
         checkStats(warrior, 9, 390, 50, 19, 9, 61, 212);
         assertEquals(0, warrior.attack());

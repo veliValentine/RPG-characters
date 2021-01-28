@@ -6,20 +6,24 @@ public class ClothArmor extends Armor {
         super(name, level, slot, 10, 0, 1, 3);
     }
 
+    @Override
     public int getHealth() {
-        return scale(5 * level + health);
+        return scale(level * 5 + health);
     }
 
+    @Override
     public int getStrength() {
         return 0;
     }
 
+    @Override
     public int getDexterity() {
         return scale(level + dexterity);
     }
 
+    @Override
     public int getIntelligence() {
-        return scale(2 * level + intelligence);
+        return scale(level * 2 + intelligence);
     }
 
     @Override

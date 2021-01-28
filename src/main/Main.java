@@ -21,8 +21,8 @@ public class Main {
         armor.print();
         System.out.println();
 
-        hero.setArmor(armor);
-        hero.setWeapon(weapon);
+        hero.addArmor(armor);
+        hero.addWeapon(weapon);
         hero.printDetails();
 
         System.out.println("Should be: 480, 63, 25, 9, 9");

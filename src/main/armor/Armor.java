@@ -26,6 +26,7 @@ public abstract class Armor {
         this.intelligence = intelligence;
     }
 
+    // scales armor stats according to the armor slot
     protected int scale(int value) {
         if (slot == SlotType.Head) {
             return Utils.roundDown(value * HEAD);
@@ -49,7 +50,11 @@ public abstract class Armor {
 
     public abstract void print();
 
-    public SlotType getSlot(){
+    public SlotType getSlot() {
         return slot;
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -2,9 +2,8 @@ package main.weapon;
 
 public class MagicWeapon implements Weapon {
     private final int BASE_DAMAGE = 25;
-    private String name;
-    private int level;
-
+    private final String name;
+    private final int level;
 
     public MagicWeapon(String name, int level) {
         this.name = name;
@@ -20,11 +19,16 @@ public class MagicWeapon implements Weapon {
 
     @Override
     public int damage() {
-        return BASE_DAMAGE + 2 * level;
+        return BASE_DAMAGE + level * 2;
     }
 
     @Override
     public WeaponType getWeaponType() {
         return WeaponType.Magic;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

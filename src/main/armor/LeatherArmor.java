@@ -1,13 +1,14 @@
 package main.armor;
 
 public class LeatherArmor extends Armor {
+
     public LeatherArmor(String name, int level, SlotType slot) {
         super(name, level, slot, 20, 1, 3, 0);
     }
 
     @Override
     public int getHealth() {
-        return scale(8 * level + health);
+        return scale(level * 8 + health);
     }
 
     @Override
@@ -17,7 +18,7 @@ public class LeatherArmor extends Armor {
 
     @Override
     public int getDexterity() {
-        return scale(2 * level + dexterity);
+        return scale(level * 2 + dexterity);
     }
 
     @Override

@@ -6,4 +6,6 @@ public interface Weapon{
     public int damage();
 
     public WeaponType getWeaponType();
+
+    public String getName();
 }
