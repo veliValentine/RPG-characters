@@ -1,4 +1,4 @@
-package Hero;
+package main.hero;
 
 public abstract class Hero {
     protected int level;

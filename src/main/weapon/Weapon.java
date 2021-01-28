@@ -1,4 +1,4 @@
-package weapon;
+package main.weapon;
 
 public interface Weapon{
     public void print();

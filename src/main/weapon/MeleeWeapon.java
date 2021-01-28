@@ -1,4 +1,4 @@
-package weapon;
+package main.weapon;
 
 public class MeleeWeapon implements Weapon {
     private final int BASE_DAMAGE = 15;
