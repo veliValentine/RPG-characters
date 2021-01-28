@@ -34,7 +34,10 @@ public abstract class Armor {
         if (slot == SlotType.Body) {
             return Utils.roundDown(value * BODY);
         }
-        return Utils.roundDown(value * LEGS);
+        if (slot == SlotType.Legs) {
+            return Utils.roundDown(value * LEGS);
+        }
+        return value;
     }
 
     public abstract int getHealth();
