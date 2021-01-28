@@ -23,6 +23,7 @@ class HeroTest {
         }
         checkStats(warrior, 9, 390, 50, 19, 9, 61, 212);
         assertEquals(0, warrior.attack());
+
         Weapon weapon = new MeleeWeapon("Great axe of the ", 5);
         Armor armor = new PlateArmor("Armor with holes", 5, SlotType.Body);
 
@@ -32,6 +33,12 @@ class HeroTest {
         checkStats(warrior, 9, 480, 63, 25,9, 61, 212);
 
         assertEquals(119, warrior.attack());
+
+        warrior.setWeapon(null);
+        warrior.setBodyArmor(null);
+
+        checkStats(warrior, 9, 390, 50, 19, 9, 61, 212);
+        assertEquals(0, warrior.attack());
 
     }
 
@@ -43,7 +50,6 @@ class HeroTest {
     @Test
     void rangerLevelsUpCorrectly() {
         Ranger ranger = new Ranger();
-        System.out.println(xpToReachLevel(12));
         ranger.addExperience(xpToReachLevel(12));
         checkStats(ranger, 12, 340, 27, 65, 13, 0, 281);
     }
