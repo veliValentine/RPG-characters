@@ -28,6 +28,8 @@ class HeroTest {
         Armor armor = new PlateArmor("Armor with holes", 5, SlotType.Body);
 
         warrior.addWeapon(weapon);
+        warrior.addWeapon(weapon);
+        warrior.addArmor(armor);
         warrior.addArmor(armor);
 
         checkStats(warrior, 9, 480, 63, 25, 9, 0, 212);
