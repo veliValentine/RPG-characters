@@ -21,7 +21,25 @@ class ArmorTest {
         checkValues(armor, 36, 0, 6, 13);
     }
 
-    void checkValues(ClothArmor armor, int health, int strength, int dexterity, int intelligence) {
+    @Test
+    void leatherArmorHasRightValues(){
+        LeatherArmor armor = new LeatherArmor("test", 0, SlotType.Body);
+        checkValues(armor, 20,1,3,0);
+
+        armor = new LeatherArmor("test", 10, SlotType.Legs);
+        checkValues(armor, 36,0,6,13);
+    }
+
+    @Test
+    void plateArmorHasRightValues(){
+        PlateArmor armor = new PlateArmor("test", 0, SlotType.Body);
+        checkValues(armor, 30,3,1,0);
+
+        armor = new PlateArmor("test", 15, SlotType.Body);
+        checkValues(armor, 210, 33, 16, 0);
+    }
+
+    void checkValues(Armor armor, int health, int strength, int dexterity, int intelligence) {
         assertEquals(health, armor.getHealth());
         assertEquals(strength, armor.getStrength());
         assertEquals(dexterity, armor.getDexterity());
