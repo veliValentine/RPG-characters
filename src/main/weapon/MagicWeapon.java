@@ -22,4 +22,9 @@ public class MagicWeapon implements Weapon {
     public int damage() {
         return BASE_DAMAGE + 2 * level;
     }
+
+    @Override
+    public WeaponType getWeaponType() {
+        return WeaponType.Magic;
+    }
 }

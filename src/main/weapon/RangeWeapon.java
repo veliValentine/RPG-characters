@@ -1,6 +1,6 @@
 package main.weapon;
 
-public class RangeWeapon implements Weapon {
+public class RangeWeapon implements Weapon{
     private final int BASE_DAMAGE = 5;
     private String name;
     private int level;
@@ -20,5 +20,10 @@ public class RangeWeapon implements Weapon {
     @Override
     public int damage() {
         return BASE_DAMAGE + 3 * level;
+    }
+
+    @Override
+    public WeaponType getWeaponType() {
+        return WeaponType.Ranged;
     }
 }

@@ -16,6 +16,11 @@ public class MeleeWeapon implements Weapon {
     }
 
     @Override
+    public WeaponType getWeaponType() {
+        return WeaponType.Melee;
+    }
+
+    @Override
     public void print() {
         System.out.println("Weapon type: Melee");
         System.out.println("Weapon level: " + level);
