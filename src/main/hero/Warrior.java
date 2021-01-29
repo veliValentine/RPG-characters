@@ -11,7 +11,7 @@ public class Warrior extends Hero {
     }
 
     @Override
-    public void printDetails() {
+    public void print() {
         System.out.println("Warrior details:");
         printStats();
     }

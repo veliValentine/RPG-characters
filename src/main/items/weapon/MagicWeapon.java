@@ -1,13 +1,10 @@
-package main.weapon;
+package main.items.weapon;
 
-public class MagicWeapon implements Weapon {
+public class MagicWeapon extends Weapon {
     private final int BASE_DAMAGE = 25;
-    private final String name;
-    private final int level;
 
     public MagicWeapon(String name, int level) {
-        this.name = name;
-        this.level = level;
+        super(name, level);
     }
 
     @Override
@@ -25,10 +22,5 @@ public class MagicWeapon implements Weapon {
     @Override
     public WeaponType getWeaponType() {
         return WeaponType.Magic;
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 }

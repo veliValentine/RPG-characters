@@ -1,4 +1,4 @@
-package main.weapon;
+package main.items.weapon;
 
 import org.junit.jupiter.api.Test;
 

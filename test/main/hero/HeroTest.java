@@ -1,12 +1,12 @@
 package main.hero;
 
-import main.armor.Armor;
-import main.armor.PlateArmor;
-import main.armor.SlotType;
-import main.weapon.MagicWeapon;
-import main.weapon.MeleeWeapon;
-import main.weapon.RangeWeapon;
-import main.weapon.Weapon;
+import main.items.armor.Armor;
+import main.items.armor.PlateArmor;
+import main.items.armor.SlotType;
+import main.items.weapon.MagicWeapon;
+import main.items.weapon.MeleeWeapon;
+import main.items.weapon.RangeWeapon;
+import main.items.weapon.Weapon;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

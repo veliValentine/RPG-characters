@@ -1,12 +1,12 @@
 package main.hero;
 
-import main.Utils;
-import main.armor.Armor;
-import main.armor.SlotType;
-import main.weapon.Weapon;
-import main.weapon.WeaponType;
+import main.*;
+import main.items.armor.Armor;
+import main.items.armor.SlotType;
+import main.items.ItemSlots;
+import main.items.weapon.Weapon;
 
-public abstract class Hero {
+public abstract class Hero implements Printable, Stats, UseWeapon, UseArmor {
     private int level;
 
     private int health;
@@ -17,7 +17,7 @@ public abstract class Hero {
     private int experience;
     private int experienceToNextLevel;
 
-    private Items items;
+    private ItemSlots items;
 
     public Hero(int health, int strength, int dexterity, int intelligence) {
         level = 1;
@@ -27,7 +27,7 @@ public abstract class Hero {
         this.intelligence = intelligence;
         experience = 0;
         experienceToNextLevel = 100;
-        items = new Items();
+        items = new ItemSlots();
     }
 
     public abstract void addExperience(int xp);
@@ -53,8 +53,6 @@ public abstract class Hero {
         this.intelligence += intelligence;
     }
 
-    public abstract void printDetails();
-
     protected void printStats() {
         //These are common part of printout to all heroes;
         System.out.println("HP: " + getHealth());
@@ -65,26 +63,30 @@ public abstract class Hero {
         System.out.println("XP to next: " + (experienceToNextLevel - experience));
     }
 
+    @Override
     public void addArmor(Armor armor) {
         items.addArmor(armor);
     }
 
+    @Override
     public void addWeapon(Weapon weapon) {
         items.addWeapon(weapon);
     }
 
+    @Override
     public void clearWeapon() {
         items.clearWeapon();
     }
 
+    @Override
     public void clearArmor(SlotType slot) {
         items.clearArmor(slot);
     }
 
     public void clearArmor() {
-        items.clearArmor(SlotType.Head);
-        items.clearArmor(SlotType.Body);
-        items.clearArmor(SlotType.Legs);
+        clearArmor(SlotType.Head);
+        clearArmor(SlotType.Body);
+        clearArmor(SlotType.Legs);
     }
 
     public int attack() {
@@ -95,20 +97,24 @@ public abstract class Hero {
         return level;
     }
 
+    @Override
     public int getHealth() {
-        return health + items.itemsHP();
+        return health + items.getHealth();
     }
 
+    @Override
     public int getStrength() {
-        return strength + items.itemsStrength();
+        return strength + items.getStrength();
     }
 
+    @Override
     public int getDexterity() {
-        return dexterity + items.itemsDexterity();
+        return dexterity + items.getDexterity();
     }
 
+    @Override
     public int getIntelligence() {
-        return intelligence + items.itemsIntelligence();
+        return intelligence + items.getIntelligence();
     }
 
     public int getExperience() {

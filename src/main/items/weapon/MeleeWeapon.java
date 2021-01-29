@@ -1,13 +1,10 @@
-package main.weapon;
+package main.items.weapon;
 
-public class MeleeWeapon implements Weapon {
+public class MeleeWeapon extends Weapon {
     private final int BASE_DAMAGE = 15;
-    private final String name;
-    private final int level;
 
     public MeleeWeapon(String name, int level) {
-        this.name = name;
-        this.level = level;
+        super(name, level);
     }
 
     @Override
@@ -27,8 +24,4 @@ public class MeleeWeapon implements Weapon {
         return WeaponType.Melee;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
 }

@@ -1,8 +1,10 @@
-package main.armor;
+package main.items.armor;
 
+import main.Printable;
+import main.Stats;
 import main.Utils;
 
-public abstract class Armor {
+public abstract class Armor implements Printable, Stats {
     private static final double HEAD = 0.8;
     private static final double BODY = 1.0;
     private static final double LEGS = 0.6;
@@ -39,16 +41,6 @@ public abstract class Armor {
         }
         return value;
     }
-
-    public abstract int getHealth();
-
-    public abstract int getStrength();
-
-    public abstract int getDexterity();
-
-    public abstract int getIntelligence();
-
-    public abstract void print();
 
     public SlotType getSlot() {
         return slot;

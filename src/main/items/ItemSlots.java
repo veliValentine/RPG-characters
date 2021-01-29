@@ -1,17 +1,21 @@
-package main.hero;
+package main.items;
 
+import main.Stats;
+import main.UseArmor;
+import main.UseWeapon;
 import main.Utils;
-import main.armor.Armor;
-import main.armor.SlotType;
-import main.weapon.Weapon;
-import main.weapon.WeaponType;
+import main.items.armor.Armor;
+import main.items.armor.SlotType;
+import main.items.weapon.Weapon;
+import main.items.weapon.WeaponType;
 
-public class Items {
+public class ItemSlots implements Stats, UseWeapon, UseArmor {
     private Weapon weapon;
     private Armor bodyArmor;
     private Armor helmet;
     private Armor leggings;
 
+    @Override
     public void addWeapon(Weapon weapon) {
         if (weapon == null) {
             return;
@@ -19,6 +23,7 @@ public class Items {
         this.weapon = weapon;
     }
 
+    @Override
     public void addArmor(Armor armor) {
         if (armor == null) return;
 
@@ -34,6 +39,7 @@ public class Items {
         }
     }
 
+    @Override
     public void clearArmor(SlotType slot) {
         if (slot == SlotType.Head) {
             helmet = null;
@@ -46,6 +52,7 @@ public class Items {
         }
     }
 
+    @Override
     public void clearWeapon() {
         weapon = null;
     }
@@ -69,7 +76,8 @@ public class Items {
         return 0;
     }
 
-    public int itemsHP() {
+    @Override
+    public int getHealth() {
         int totalBonus = 0;
         if (helmet != null) {
             totalBonus += helmet.getHealth();
@@ -83,7 +91,8 @@ public class Items {
         return totalBonus;
     }
 
-    public int itemsStrength() {
+    @Override
+    public int getStrength() {
         int totalBonus = 0;
         if (helmet != null) {
             totalBonus += helmet.getStrength();
@@ -97,7 +106,8 @@ public class Items {
         return totalBonus;
     }
 
-    public int itemsDexterity() {
+    @Override
+    public int getDexterity() {
         int totalBonus = 0;
         if (helmet != null) {
             totalBonus += helmet.getDexterity();
@@ -111,7 +121,8 @@ public class Items {
         return totalBonus;
     }
 
-    public int itemsIntelligence() {
+    @Override
+    public int getIntelligence() {
         int totalBonus = 0;
         if (helmet != null) {
             totalBonus += helmet.getIntelligence();
