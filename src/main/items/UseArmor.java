@@ -1,4 +1,4 @@
-package main;
+package main.items;
 
 import main.items.armor.Armor;
 import main.items.armor.SlotType;

@@ -1,9 +1,11 @@
 package main.hero;
 
 import main.*;
+import main.items.UseWeapon;
 import main.items.armor.Armor;
 import main.items.armor.SlotType;
 import main.items.ItemSlots;
+import main.items.UseArmor;
 import main.items.weapon.Weapon;
 
 public abstract class Hero implements Printable, Stats, UseWeapon, UseArmor {
@@ -45,7 +47,7 @@ public abstract class Hero implements Printable, Stats, UseWeapon, UseArmor {
 
     private void levelUp(int health, int strength, int dexterity, int intelligence) {
         experience -= experienceToNextLevel;
-        experienceToNextLevel = Utils.roundDown(experienceToNextLevel * 1.1);
+        experienceToNextLevel = RoundDown.roundDown(experienceToNextLevel * 1.1);
         level++;
         this.health += health;
         this.strength += strength;

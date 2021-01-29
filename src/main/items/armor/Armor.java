@@ -2,7 +2,7 @@ package main.items.armor;
 
 import main.Printable;
 import main.Stats;
-import main.Utils;
+import main.RoundDown;
 
 public abstract class Armor implements Printable, Stats {
     private static final double HEAD = 0.8;
@@ -31,13 +31,13 @@ public abstract class Armor implements Printable, Stats {
     // scales armor stats according to the armor slot
     protected int scale(int value) {
         if (slot == SlotType.Head) {
-            return Utils.roundDown(value * HEAD);
+            return RoundDown.roundDown(value * HEAD);
         }
         if (slot == SlotType.Body) {
-            return Utils.roundDown(value * BODY);
+            return RoundDown.roundDown(value * BODY);
         }
         if (slot == SlotType.Legs) {
-            return Utils.roundDown(value * LEGS);
+            return RoundDown.roundDown(value * LEGS);
         }
         return value;
     }

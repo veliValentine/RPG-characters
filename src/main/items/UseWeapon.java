@@ -1,4 +1,4 @@
-package main;
+package main.items;
 
 import main.items.weapon.Weapon;
 

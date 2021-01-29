@@ -1,9 +1,7 @@
 package main.items;
 
 import main.Stats;
-import main.UseArmor;
-import main.UseWeapon;
-import main.Utils;
+import main.RoundDown;
 import main.items.armor.Armor;
 import main.items.armor.SlotType;
 import main.items.weapon.Weapon;
@@ -62,13 +60,13 @@ public class ItemSlots implements Stats, UseWeapon, UseArmor {
             int totalDamage = weapon.damage();
             // check weapon type and scale damage accordingly
             if (weapon.getWeaponType() == WeaponType.Melee) {
-                totalDamage += Utils.roundDown(1.5 * strength);
+                totalDamage += RoundDown.roundDown(1.5 * strength);
             }
             if (weapon.getWeaponType() == WeaponType.Ranged) {
-                totalDamage += Utils.roundDown(2 * dexterity);
+                totalDamage += RoundDown.roundDown(2 * dexterity);
             }
             if (weapon.getWeaponType() == WeaponType.Magic) {
-                totalDamage += Utils.roundDown(3 * intelligence);
+                totalDamage += RoundDown.roundDown(3 * intelligence);
             }
             System.out.println("Attacking for " + totalDamage);
             return totalDamage;
