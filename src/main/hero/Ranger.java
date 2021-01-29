@@ -11,7 +11,7 @@ public class Ranger extends Hero {
     }
 
     @Override
-    public void printDetails() {
+    public void print() {
         System.out.println("Ranger details: ");
         printStats();
     }

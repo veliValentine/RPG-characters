@@ -1,4 +1,4 @@
-package main.armor;
+package main.items.armor;
 
 import org.junit.jupiter.api.Test;
 

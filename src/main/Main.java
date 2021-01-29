@@ -1,8 +1,8 @@
 package main;
 
 import main.hero.*;
-import main.weapon.*;
-import main.armor.*;
+import main.items.weapon.*;
+import main.items.armor.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class Main {
 
         // 1. Print details
         for (Hero hero :heroes) {
-            hero.printDetails();
+            hero.print();
             System.out.println();
         }
 
@@ -33,7 +33,7 @@ public class Main {
 
         // 2. Print details
         for (Hero hero :heroes) {
-            hero.printDetails();
+            hero.print();
             System.out.println();
         }
 
@@ -78,7 +78,7 @@ public class Main {
         warrior.addWeapon(meleeWeapon);
 
         // 5. Print full equipped warrior
-        warrior.printDetails();
+        warrior.print();
         warrior.attack();
         System.out.println();
 
@@ -91,7 +91,7 @@ public class Main {
         }
 
         // 6. Only one body armor was added to our warrior
-        warrior.printDetails();
+        warrior.print();
         warrior.attack();
         System.out.println();
 
@@ -102,7 +102,7 @@ public class Main {
         warrior.addArmor(leggings);
 
         // 7. print details
-        warrior.printDetails();
+        warrior.print();
         warrior.attack();
         System.out.println();
 
@@ -112,7 +112,7 @@ public class Main {
         warrior.addArmor(clothBodyArmor);
 
         // 8. see that warrior stats are updated accordingly
-        warrior.printDetails();
+        warrior.print();
         warrior.attack();
         System.out.println();
     }

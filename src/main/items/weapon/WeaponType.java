@@ -1,4 +1,4 @@
-package main.weapon;
+package main.items.weapon;
 
 public enum WeaponType {
     Melee,

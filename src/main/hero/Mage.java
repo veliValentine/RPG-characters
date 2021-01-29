@@ -11,7 +11,7 @@ public class Mage extends Hero{
     }
 
     @Override
-    public void printDetails() {
+    public void print() {
         System.out.println("Mage details: ");
         printStats();
     }

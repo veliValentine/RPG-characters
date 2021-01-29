@@ -1,4 +1,4 @@
-package main.armor;
+package main.items.armor;
 
 public enum SlotType {
     Legs,

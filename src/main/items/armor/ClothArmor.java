@@ -1,19 +1,19 @@
-package main.armor;
+package main.items.armor;
 
-public class PlateArmor extends Armor {
+public class ClothArmor extends Armor {
 
-    public PlateArmor(String name, int level, SlotType slot) {
-        super(name, level, slot, 30, 3, 1, 0);
+    public ClothArmor(String name, int level, SlotType slot) {
+        super(name, level, slot, 10, 0, 1, 3);
     }
 
     @Override
     public int getHealth() {
-        return scale(level * 12 + health);
+        return scale(level * 5 + health);
     }
 
     @Override
     public int getStrength() {
-        return scale(level * 2 + strength);
+        return 0;
     }
 
     @Override
@@ -23,16 +23,16 @@ public class PlateArmor extends Armor {
 
     @Override
     public int getIntelligence() {
-        return 0;
+        return scale(level * 2 + intelligence);
     }
 
     @Override
     public void print() {
-        System.out.println("Armor type: Plate");
+        System.out.println("Armor type: Cloth");
         System.out.println("Slot: " + slot);
         System.out.println("Armor level: " + level);
         System.out.println("Bonus HP: " + getHealth());
-        System.out.println("Bonus Str: " + getStrength());
         System.out.println("Bonus Dex: " + getDexterity());
+        System.out.println("Bonus Int: " + getIntelligence());
     }
 }

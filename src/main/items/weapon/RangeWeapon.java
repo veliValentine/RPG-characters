@@ -1,13 +1,10 @@
-package main.weapon;
+package main.items.weapon;
 
-public class RangeWeapon implements Weapon {
+public class RangeWeapon extends Weapon {
     private final int BASE_DAMAGE = 5;
-    private final String name;
-    private final int level;
 
     public RangeWeapon(String name, int level) {
-        this.name = name;
-        this.level = level;
+        super(name, level);
     }
 
     @Override
@@ -25,10 +22,5 @@ public class RangeWeapon implements Weapon {
     @Override
     public WeaponType getWeaponType() {
         return WeaponType.Ranged;
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 }
