@@ -81,8 +81,8 @@ public class Main {
         // Don't forget the melee weapon
         warrior.addWeapon(meleeWeapon);
 
-        // 5. Print full equipped warrior
-        System.out.println("Fully equipped Warrior");
+        // 5. Print equipped warrior
+        System.out.println("Warrior equipped with armor it can wear");
         warrior.print();
         warrior.attack();
         System.out.println();
@@ -106,9 +106,10 @@ public class Main {
 
         // Add leggings so it doesn't freeze
         warrior.addArmor(leggings);
+        // leggings are not equipped since warrior level is not high enough
 
-        // 7. print details'
-        System.out.println("Warrior with leggings and sword");
+        // 7. print details
+        System.out.println("Warrior without leggings and sword");
         warrior.print();
         warrior.attack();
         System.out.println();
