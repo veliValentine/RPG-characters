@@ -95,3 +95,42 @@ This led building far more tests than necessary for modelling and class design p
 
 <a name="structure"></a>
 ## Structure
+```
+|-src
+| |-main
+|   | Main
+|   | Printable (Interface)
+|   | GetStats (Interface)
+|   | RoundDown
+|   |  
+|   |-hero
+|   | | Hero (Abstract)
+|   | | Mage
+|   | | Ranger
+|   | | Warrior
+|   |
+|   |-items
+|   | | ItemSlots
+|   | | UseArmor (Interface)
+|   | | UseWeapon (Interface)
+|   | |
+|   | |-armor
+|   | | | Armor (Abstract)
+|   | | | ClothArmor
+|   | | | LeatherArmor
+|   | | | PlateArmor
+|   | | | SlotType (Enum)
+|   | |
+|   | |-weapons
+|   | | | Weapon (Abstract)
+|   | | | WeaponType (Enum)
+|   | | | MeleeWeapon
+|   | | | RangeWeapon
+|   | | | MagicWeapon 
+|
+|-test
+| | ...
+```
+
+Author
+[veliValentine](https://github.com/veliValentine)
