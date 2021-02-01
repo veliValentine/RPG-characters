@@ -49,4 +49,8 @@ public abstract class Armor implements Printable, GetStats {
     public String getName() {
         return name;
     }
+
+    public int getLevel(){
+        return level;
+    }
 }

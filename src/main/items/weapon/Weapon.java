@@ -18,4 +18,8 @@ public abstract class Weapon implements Printable {
     public String getName() {
         return name;
     }
+
+    public int getLevel(){
+        return level;
+    }
 }

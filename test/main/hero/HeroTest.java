@@ -55,11 +55,24 @@ class HeroTest {
         Weapon magic = new MagicWeapon("magic", 100);
 
         warrior.addWeapon(melee);
-        assertEquals(290, warrior.attack());
+        assertEquals(0, warrior.attack());
         warrior.addWeapon(ranged);
-        assertEquals(343, warrior.attack());
+        assertEquals(0, warrior.attack());
         warrior.addWeapon(magic);
-        assertEquals(252, warrior.attack());
+        assertEquals(0, warrior.attack());
+        warrior.clearWeapon();
+        assertEquals(0, warrior.attack());
+
+        melee = new MeleeWeapon("Melee", 9);
+        ranged = new RangeWeapon("Ranged", 9);
+        magic = new MagicWeapon("magic", 9);
+
+        warrior.addWeapon(melee);
+        assertEquals(108, warrior.attack());
+        warrior.addWeapon(ranged);
+        assertEquals(70, warrior.attack());
+        warrior.addWeapon(magic);
+        assertEquals(70, warrior.attack());
         warrior.clearWeapon();
         assertEquals(0, warrior.attack());
     }

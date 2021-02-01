@@ -67,11 +67,17 @@ public abstract class Hero implements Printable, GetStats, UseWeapon, UseArmor {
 
     @Override
     public void addArmor(Armor armor) {
+        if(armor.getLevel() > level){
+            return;
+        }
         items.addArmor(armor);
     }
 
     @Override
     public void addWeapon(Weapon weapon) {
+        if(weapon.getLevel() > getLevel()){
+            return;
+        }
         items.addWeapon(weapon);
     }
 
