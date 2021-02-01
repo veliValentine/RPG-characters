@@ -66,9 +66,7 @@ Heading numbers indicates the printout from [main](/src/main).
 #### 4. And armors...
 
 ![cloth](documents/4_armor_helmet.PNG)
-
 ![leather](documents/4_armor_body.PNG)
-
 ![plate](documents/4_armor_legs.PNG)
 
 #### 5. Equipped Warrior
