@@ -1,6 +1,6 @@
 package main.hero;
 
-public class Mage extends Hero{
+public class Mage extends Hero {
     public Mage() {
         super(100, 2, 3, 10);
     }

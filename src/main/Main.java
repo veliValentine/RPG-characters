@@ -22,19 +22,19 @@ public class Main {
 
         // 1. Print details
         System.out.println("Our heroes!");
-        for (Hero hero :heroes) {
+        for (Hero hero : heroes) {
             hero.print();
             System.out.println();
         }
 
         // Add 1200xp to heroes => lvl 9
-        for (Hero hero :heroes) {
+        for (Hero hero : heroes) {
             hero.addExperience(1200);
         }
 
         // 2. Print details
         System.out.println("Our heroes after leveling up!");
-        for (Hero hero :heroes) {
+        for (Hero hero : heroes) {
             hero.print();
             System.out.println();
         }
@@ -51,7 +51,7 @@ public class Main {
 
         // 3. Print weapon details
         System.out.println("Weapons for our heroes!");
-        for (Weapon weapon :weapons) {
+        for (Weapon weapon : weapons) {
             weapon.print();
             System.out.println();
         }
@@ -67,8 +67,8 @@ public class Main {
         armors.add(leggings);
 
         // 4. Print armor details
-        System.out.println("and some armor.");
-        for (Armor armor :armors) {
+        System.out.println("and some armor...");
+        for (Armor armor : armors) {
             armor.print();
             System.out.println();
         }

@@ -1,13 +1,13 @@
 package main.items;
 
-import main.Stats;
+import main.GetStats;
 import main.RoundDown;
 import main.items.armor.Armor;
 import main.items.armor.SlotType;
 import main.items.weapon.Weapon;
 import main.items.weapon.WeaponType;
 
-public class ItemSlots implements Stats, UseWeapon, UseArmor {
+public class ItemSlots implements GetStats, UseWeapon, UseArmor {
     private Weapon weapon;
     private Armor bodyArmor;
     private Armor helmet;

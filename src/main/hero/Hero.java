@@ -8,7 +8,7 @@ import main.items.ItemSlots;
 import main.items.UseArmor;
 import main.items.weapon.Weapon;
 
-public abstract class Hero implements Printable, Stats, UseWeapon, UseArmor {
+public abstract class Hero implements Printable, GetStats, UseWeapon, UseArmor {
     private int level;
 
     private int health;

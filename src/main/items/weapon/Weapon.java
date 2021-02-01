@@ -6,7 +6,7 @@ public abstract class Weapon implements Printable {
     private final String name;
     protected final int level;
 
-    public Weapon(String name, int level){
+    public Weapon(String name, int level) {
         this.name = name;
         this.level = level;
     }
