@@ -1,10 +1,10 @@
 package main.items.armor;
 
 import main.Printable;
-import main.Stats;
+import main.GetStats;
 import main.RoundDown;
 
-public abstract class Armor implements Printable, Stats {
+public abstract class Armor implements Printable, GetStats {
     private static final double HEAD = 0.8;
     private static final double BODY = 1.0;
     private static final double LEGS = 0.6;
@@ -48,5 +48,9 @@ public abstract class Armor implements Printable, Stats {
 
     public String getName() {
         return name;
+    }
+
+    public int getLevel(){
+        return level;
     }
 }

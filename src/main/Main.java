@@ -21,18 +21,20 @@ public class Main {
         heroes.add(mage);
 
         // 1. Print details
-        for (Hero hero :heroes) {
+        System.out.println("Our heroes!");
+        for (Hero hero : heroes) {
             hero.print();
             System.out.println();
         }
 
         // Add 1200xp to heroes => lvl 9
-        for (Hero hero :heroes) {
+        for (Hero hero : heroes) {
             hero.addExperience(1200);
         }
 
         // 2. Print details
-        for (Hero hero :heroes) {
+        System.out.println("Our heroes after leveling up!");
+        for (Hero hero : heroes) {
             hero.print();
             System.out.println();
         }
@@ -48,7 +50,8 @@ public class Main {
         weapons.add(magicWeapon);
 
         // 3. Print weapon details
-        for (Weapon weapon :weapons) {
+        System.out.println("Weapons for our heroes!");
+        for (Weapon weapon : weapons) {
             weapon.print();
             System.out.println();
         }
@@ -64,7 +67,8 @@ public class Main {
         armors.add(leggings);
 
         // 4. Print armor details
-        for (Armor armor :armors) {
+        System.out.println("and some armor...");
+        for (Armor armor : armors) {
             armor.print();
             System.out.println();
         }
@@ -77,7 +81,8 @@ public class Main {
         // Don't forget the melee weapon
         warrior.addWeapon(meleeWeapon);
 
-        // 5. Print full equipped warrior
+        // 5. Print equipped warrior
+        System.out.println("Warrior equipped with armor it can wear");
         warrior.print();
         warrior.attack();
         System.out.println();
@@ -91,6 +96,7 @@ public class Main {
         }
 
         // 6. Only one body armor was added to our warrior
+        System.out.println("Warrior with body armor and sword");
         warrior.print();
         warrior.attack();
         System.out.println();
@@ -100,8 +106,10 @@ public class Main {
 
         // Add leggings so it doesn't freeze
         warrior.addArmor(leggings);
+        // leggings are not equipped since warrior level is not high enough
 
         // 7. print details
+        System.out.println("Warrior without leggings and sword");
         warrior.print();
         warrior.attack();
         System.out.println();
@@ -112,6 +120,7 @@ public class Main {
         warrior.addArmor(clothBodyArmor);
 
         // 8. see that warrior stats are updated accordingly
+        System.out.println("Warrior with less awesome leggings. And sword!");
         warrior.print();
         warrior.attack();
         System.out.println();

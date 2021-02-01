@@ -8,7 +8,7 @@ import main.items.ItemSlots;
 import main.items.UseArmor;
 import main.items.weapon.Weapon;
 
-public abstract class Hero implements Printable, Stats, UseWeapon, UseArmor {
+public abstract class Hero implements Printable, GetStats, UseWeapon, UseArmor {
     private int level;
 
     private int health;
@@ -67,11 +67,17 @@ public abstract class Hero implements Printable, Stats, UseWeapon, UseArmor {
 
     @Override
     public void addArmor(Armor armor) {
+        if(armor.getLevel() > level){
+            return;
+        }
         items.addArmor(armor);
     }
 
     @Override
     public void addWeapon(Weapon weapon) {
+        if(weapon.getLevel() > getLevel()){
+            return;
+        }
         items.addWeapon(weapon);
     }
 

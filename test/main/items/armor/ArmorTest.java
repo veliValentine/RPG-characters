@@ -22,18 +22,18 @@ class ArmorTest {
     }
 
     @Test
-    void leatherArmorHasRightValues(){
+    void leatherArmorHasRightValues() {
         LeatherArmor armor = new LeatherArmor("test", 0, SlotType.Body);
-        checkValues(armor, 20,1,3,0);
+        checkValues(armor, 20, 1, 3, 0);
 
         armor = new LeatherArmor("test", 10, SlotType.Legs);
-        checkValues(armor, 60,6,13,0);
+        checkValues(armor, 60, 6, 13, 0);
     }
 
     @Test
-    void plateArmorHasRightValues(){
+    void plateArmorHasRightValues() {
         PlateArmor armor = new PlateArmor("test", 0, SlotType.Body);
-        checkValues(armor, 30,3,1,0);
+        checkValues(armor, 30, 3, 1, 0);
 
         armor = new PlateArmor("test", 15, SlotType.Body);
         checkValues(armor, 210, 33, 16, 0);

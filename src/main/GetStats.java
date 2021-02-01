@@ -1,6 +1,6 @@
 package main;
 
-public interface Stats {
+public interface GetStats {
     public int getHealth();
 
     public int getStrength();
