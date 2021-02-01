@@ -21,6 +21,7 @@ public class Main {
         heroes.add(mage);
 
         // 1. Print details
+        System.out.println("Our heroes!");
         for (Hero hero :heroes) {
             hero.print();
             System.out.println();
@@ -32,6 +33,7 @@ public class Main {
         }
 
         // 2. Print details
+        System.out.println("Our heroes after leveling up!");
         for (Hero hero :heroes) {
             hero.print();
             System.out.println();
@@ -48,6 +50,7 @@ public class Main {
         weapons.add(magicWeapon);
 
         // 3. Print weapon details
+        System.out.println("Weapons for our heroes!");
         for (Weapon weapon :weapons) {
             weapon.print();
             System.out.println();
@@ -64,6 +67,7 @@ public class Main {
         armors.add(leggings);
 
         // 4. Print armor details
+        System.out.println("and some armor.");
         for (Armor armor :armors) {
             armor.print();
             System.out.println();
@@ -78,6 +82,7 @@ public class Main {
         warrior.addWeapon(meleeWeapon);
 
         // 5. Print full equipped warrior
+        System.out.println("Fully equipped Warrior");
         warrior.print();
         warrior.attack();
         System.out.println();
@@ -91,6 +96,7 @@ public class Main {
         }
 
         // 6. Only one body armor was added to our warrior
+        System.out.println("Warrior with body armor and sword");
         warrior.print();
         warrior.attack();
         System.out.println();
@@ -101,7 +107,8 @@ public class Main {
         // Add leggings so it doesn't freeze
         warrior.addArmor(leggings);
 
-        // 7. print details
+        // 7. print details'
+        System.out.println("Warrior with leggings and sword");
         warrior.print();
         warrior.attack();
         System.out.println();
@@ -112,6 +119,7 @@ public class Main {
         warrior.addArmor(clothBodyArmor);
 
         // 8. see that warrior stats are updated accordingly
+        System.out.println("Warrior with less awesome leggings. And sword!");
         warrior.print();
         warrior.attack();
         System.out.println();
